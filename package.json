@@ -1,18 +1,18 @@
 {
-  "name": "vue-markdown-renderer",
+  "name": "vue-md-render",
   "version": "0.0.1",
   "packageManager": "pnpm@7.12.0",
   "type": "module",
   "files": [
     "dist"
   ],
-  "types": "./dist/vue-markdown-renderer.d.ts",
-  "main": "./dist/vue-markdown-renderer.umd.cjs",
-  "module": "./dist/vue-markdown-renderer.js",
+  "types": "./dist/vue-md-render.d.ts",
+  "main": "./dist/vue-md-render.umd.cjs",
+  "module": "./dist/vue-md-render.js",
   "exports": {
     ".": {
-      "import": "./dist/vue-markdown-renderer.js",
-      "require": "./dist/vue-markdown-renderer.umd.cjs"
+      "import": "./dist/vue-md-render.js",
+      "require": "./dist/vue-md-render.umd.cjs"
     }
   },
   "scripts": {

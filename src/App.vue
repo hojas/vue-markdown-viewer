@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import 'prismjs'
-import 'prismjs/themes/prism-tomorrow.css'
-import VueMarkdownRenderer from './components/vue-markdown-renderer'
+import VueMarkdownRenderer from './components/vue-md-render'
 import content from './example.md?raw'
 </script>
 
 <template>
-  <vue-markdown-renderer :content="content" />
+  <vue-md-render :content="content" />
 </template>

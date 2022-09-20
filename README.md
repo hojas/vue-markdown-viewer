@@ -1,11 +1,11 @@
-# vue-markdown-renderer
+# vue-md-render
 
 Vue component to render markdown through remark.
 
 ## Install
 
 ```shell
-$ npm install vue-markdown-renderer
+$ npm install vue-md-render
 ```
 
 ## Use
@@ -13,15 +13,15 @@ $ npm install vue-markdown-renderer
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import VueMarkdownRenderer from 'vue-markdown-renderer'
+import VueMarkdownRenderer from 'vue-md-render'
 
 const md = ref('## hi')
 </script>
 
 <template>
-  <vue-markdown-renderer>
+  <vue-md-render>
     {{ md }}
-  </vue-markdown-renderer>
+  </vue-md-render>
 </template>
 ```
 
@@ -31,15 +31,15 @@ Use a plugin to support gfm:
 <script lang="ts" setup>
 import { ref } from 'vue'
 import remarkGfm from 'remark-gfm'
-import VueMarkdownRenderer from 'vue-markdown-renderer'
+import VueMarkdownRenderer from 'vue-md-render'
 
 const md = ref('## hi')
 </script>
 
 <template>
-  <vue-markdown-renderer :remark-plugins="[remarkGfm]">
+  <vue-md-render :remark-plugins="[remarkGfm]">
     {{ md }}
-  </vue-markdown-renderer>
+  </vue-md-render>
 </template>
 ```
 
@@ -49,7 +49,7 @@ Syntax highlight:
 <script lang="ts" setup>
 import { ref } from 'vue'
 import remarkGfm from 'remark-gfm'
-import VueMarkdownRenderer from 'vue-markdown-renderer'
+import VueMarkdownRenderer from 'vue-md-render'
 import 'prismjs'
 import 'prismjs/themes/prism-tomorrow.css'
 
@@ -61,9 +61,9 @@ console.log("hi")
 </script>
 
 <template>
-  <vue-markdown-renderer :remark-plugins="[remarkGfm]">
+  <vue-md-render :remark-plugins="[remarkGfm]">
     {{ md }}
-  </vue-markdown-renderer>
+  </vue-md-render>
 </template>
 ```
 
