@@ -1,6 +1,6 @@
 # vue-md-render
 
-Vue component to render markdown through remark.
+Vue component to render markdown through [remark](https://github.com/remarkjs/remark).
 
 ## Install
 
@@ -13,7 +13,7 @@ $ npm install vue-md-render
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import VueMarkdownRenderer from 'vue-md-render'
+import VueMdRender from 'vue-md-render'
 
 const md = ref('## hi')
 </script>
@@ -31,7 +31,7 @@ Use a plugin to support gfm:
 <script lang="ts" setup>
 import { ref } from 'vue'
 import remarkGfm from 'remark-gfm'
-import VueMarkdownRenderer from 'vue-md-render'
+import VueMdRender from 'vue-md-render'
 
 const md = ref('## hi')
 </script>
@@ -48,7 +48,6 @@ Syntax highlight:
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import remarkGfm from 'remark-gfm'
 import VueMarkdownRenderer from 'vue-md-render'
 import 'prismjs'
 import 'prismjs/themes/prism-tomorrow.css'
@@ -61,11 +60,13 @@ console.log("hi")
 </script>
 
 <template>
-  <vue-md-render :remark-plugins="[remarkGfm]">
+  <vue-md-render>
     {{ md }}
   </vue-md-render>
 </template>
 ```
+
+## Options
 
 ## Related
 
