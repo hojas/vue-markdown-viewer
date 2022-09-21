@@ -48,7 +48,7 @@ Syntax highlight:
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import VueMarkdownRenderer from 'vue-md-render'
+import VueMdRender from 'vue-md-render'
 import 'prismjs'
 import 'prismjs/themes/prism-tomorrow.css'
 
