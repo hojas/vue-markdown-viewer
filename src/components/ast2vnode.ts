@@ -1,5 +1,5 @@
 import { h, VNode } from 'vue'
-import type { AST } from '../index'
+import type { AST } from './types'
 
 export const astToVNode = (
   ast: AST,

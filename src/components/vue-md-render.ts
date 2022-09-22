@@ -3,7 +3,7 @@ import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { astToVNode } from './ast2vnode'
-import type { Components, Props, AST } from '../index'
+import type { Components, Props, AST } from './types'
 
 export default {
   props: {

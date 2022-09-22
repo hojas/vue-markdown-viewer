@@ -1,30 +1,30 @@
 import type { VNode } from 'vue'
 
-declare interface Text {
+interface Text {
   type: 'text'
   value: string
 }
 
-declare interface Element {
+interface Element {
   type: 'element'
   tagName: string
   properties?: Record<string, any>
   children?: Array<Element | Text>
 }
 
-declare interface Root {
+interface Root {
   type: 'root'
   children: Array<Element | Text>
 }
 
-declare type AST = Root | Element | Text
+export type AST = Root | Element | Text
 
-declare type Components = Record<
+export type Components = Record<
   string,
   (properties?: Record<string, any>) => VNode
 >
 
-declare interface Props {
+export interface Props {
   content?: string
   components?: Components
   remarkRehypeOptions?: Record<string, any>

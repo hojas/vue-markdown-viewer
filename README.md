@@ -68,6 +68,17 @@ console.log("hi")
 
 ## Options
 
+- `content`: string \
+  markdown string
+- `components`: Record<string, Component> \
+  object mapping tag names to Vue components
+- `remarkRehypeOptions`: Object \
+  Options of remark-rehype
+- `remarkPlugins`: Array \
+  list of remark plugins to use
+- `rehypePlugins`: Array \
+  list of rehype plugins to use
+
 ## Related
 
 - [react-markdown](https://github.com/remarkjs/react-markdown)
