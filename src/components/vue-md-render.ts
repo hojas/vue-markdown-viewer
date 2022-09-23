@@ -2,8 +2,8 @@ import { PropType, getCurrentInstance } from 'vue'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
-import { astToVNode } from './ast2vnode'
-import type { Components, Props, AST } from './types'
+import { astToVNode } from './ast-to-vnode'
+import type { Components, Options, AST } from './types'
 
 export default {
   props: {
@@ -22,8 +22,12 @@ export default {
     rehypePlugins: {
       type: Array,
     },
+    skipHtml: {
+      type: Boolean,
+      default: false,
+    },
   },
-  setup(props: Props) {
+  setup(props: Options) {
     let { content } = props
     if (typeof content === 'undefined') {
       const instance = getCurrentInstance()
@@ -47,6 +51,6 @@ export default {
       ) as unknown as AST
     }
 
-    return () => astToVNode(main(), props.components)
+    return () => astToVNode(main(), props)
   },
 }

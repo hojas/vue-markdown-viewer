@@ -14,10 +14,7 @@
       "ESNext",
       "DOM"
     ],
-    "skipLibCheck": true,
-    "types": [
-      "vite/client"
-    ]
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*.ts",

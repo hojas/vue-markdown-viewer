@@ -68,16 +68,18 @@ console.log("hi")
 
 ## Options
 
-- `content`: string \
+- `content`: `string` \
   markdown string
-- `components`: Record<string, Component> \
+- `components`: `Record<string, Component>` \
   object mapping tag names to Vue components
-- `remarkRehypeOptions`: Object \
+- `remarkRehypeOptions`: `Record<string, any>` \
   Options of remark-rehype
-- `remarkPlugins`: Array \
+- `remarkPlugins`: `Array` \
   list of remark plugins to use
-- `rehypePlugins`: Array \
+- `rehypePlugins`: `Array` \
   list of rehype plugins to use
+- `skipHtml`: `boolean`, default: `false` \
+  ignore HTML in markdown completely
 
 ## Related
 
