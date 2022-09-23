@@ -1,6 +1,6 @@
 # vue-md-render
 
-Vue component to render markdown through [remark](https://github.com/remarkjs/remark).
+Vue component to render markdown with [remark](https://github.com/remarkjs/remark).
 
 ## Install
 
