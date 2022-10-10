@@ -78,8 +78,12 @@ console.log("hi")
   list of remark plugins to use
 - `rehypePlugins`: `Array` \
   list of rehype plugins to use
+- `className`: `string` \
+  wrap the markdown in a `div` with this class name
 - `skipHtml`: `boolean`, default: `false` \
   ignore HTML in markdown completely
+- `linkTarget`: `string` \
+  target to use on links
 
 ## Related
 

@@ -41,5 +41,7 @@ export interface Options {
   remarkRehypeOptions?: Record<string, any>
   remarkPlugins?: any[]
   rehypePlugins?: any[]
-  skipHtml: boolean
+  className?: string
+  skipHtml?: boolean
+  linkTarget?: string
 }
