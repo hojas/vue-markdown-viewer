@@ -20,13 +20,19 @@ const code = (properties: any) => {
 
 <template>
   <vue-md-render
-    class-name="markdown-body"
+    class="markdown-body"
     :content="content"
     :components="{ code }"
     :rehype-plugins="[rehypeRaw]"
     link-target="_blank"
   />
 </template>
+
+<style>
+body {
+  background: #000;
+}
+</style>
 
 <style scoped>
 .markdown-body {

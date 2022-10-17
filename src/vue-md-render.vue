@@ -6,6 +6,9 @@ import remarkRehype from 'remark-rehype'
 import { astToVNode } from './ast-to-vnode'
 import type { Components, AST } from './types'
 
+/**
+ * Component props/options
+ */
 const props = defineProps<{
   content?: string
   components?: Components
@@ -17,6 +20,7 @@ const props = defineProps<{
   linkTarget?: string
 }>()
 
+// Get content from props or default slot
 let { content } = props
 if (typeof content === 'undefined') {
   const instance = getCurrentInstance()
@@ -24,6 +28,10 @@ if (typeof content === 'undefined') {
   content = slot ? (slot()[0].children as string) : ''
 }
 
+/**
+ * Parse markdown to AST with plugins
+ * @returns {AST} AST
+ */
 const main = (): AST => {
   const processor = unified()
     .use(remarkParse)
@@ -37,9 +45,13 @@ const main = (): AST => {
   return processor.runSync(processor.parse(content), content) as unknown as AST
 }
 
-const Render = () => astToVNode(main(), props)
+/**
+ * Component to render markdown
+ * @returns VNode
+ */
+const RenderMarkdown = () => astToVNode(main(), props)
 </script>
 
 <template>
-  <render />
+  <render-markdown />
 </template>

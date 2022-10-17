@@ -1,6 +1,12 @@
 import { h, VNode } from 'vue'
 import type { Options, AST, Child, Components } from './types'
 
+/**
+ * Render normal element
+ * @param {AST} ast AST
+ * @param {Options} options Options
+ * @returns {VNode} VNode
+ */
 const renderElement = (ast: AST & { type: 'element' }, options: Options) =>
   h(
     ast.tagName,
@@ -10,6 +16,12 @@ const renderElement = (ast: AST & { type: 'element' }, options: Options) =>
       : []
   )
 
+/**
+ * Extends normal element with custom component
+ * @param {AST} ast AST
+ * @param {Options} options Options
+ * @returns {VNode} VNode
+ */
 const renderCustomComponent = (
   ast: AST & { type: 'element' },
   options: Options
@@ -24,6 +36,12 @@ const renderCustomComponent = (
   )
 }
 
+/**
+ * Render link with `target` option
+ * @param {AST} ast AST
+ * @param {Options} options  Options
+ * @returns {VNode} VNode
+ */
 const renderLink = (ast: AST & { type: 'element' }, options: Options) => {
   ast.properties = {
     ...ast.properties,
@@ -32,6 +50,12 @@ const renderLink = (ast: AST & { type: 'element' }, options: Options) => {
   return renderElement(ast, options)
 }
 
+/**
+ * Render AST to VNode
+ * @param {AST} ast AST
+ * @param {Options} options Options
+ * @returns {VNode} VNode
+ */
 export const astToVNode = (ast: AST, options: Options): VNode | string => {
   // root node
   if (ast.type === 'root') {
