@@ -95,6 +95,11 @@ export const astToVNode = (ast: AST, options: Options): VNode | string => {
     return renderElement(ast, options)
   }
 
+  // raw html
+  if (ast.type === 'raw') {
+    return options.skipHtml ? '' : ast.value
+  }
+
   // text node
   return ast.value
 }
