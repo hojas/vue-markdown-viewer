@@ -43,28 +43,29 @@ const md = ref('## hi')
 </template>
 ```
 
-Syntax highlight:
+Use a plugin to support syntax highlight:
 
-```vue
+````vue
 <script lang="ts" setup>
 import { ref } from 'vue'
+import rehypeHighlight from 'rehype-highlight'
 import VueMdRender from 'vue-md-render'
-import 'prismjs'
-import 'prismjs/themes/prism-tomorrow.css'
 
 const md = ref(`
-\`\`\`javascript
+## Highlight
+
+```js
 console.log("hi")
-\`\`\`
+```
 `)
 </script>
 
 <template>
-  <vue-md-render>
+  <vue-md-render :rehype-plugins="[rehypeHighlight]">
     {{ md }}
   </vue-md-render>
 </template>
-```
+````
 
 ## Options
 

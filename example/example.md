@@ -1,6 +1,6 @@
-# A demo of `vue-markdown`
+# A demo of `vue-md-render`
 
-`vue-markdown` is a markdown component for Vue.
+`vue-md-render` is a markdown component for Vue.
 
 ## Overview
 
@@ -9,25 +9,58 @@
 - Lets you define your own components (to render `MyHeading` instead of `h1`)
 - Has a lot of plugins
 
-## Custom video
-
-```video
-http://techslides.com/demos/sample-videos/small.mp4
-http://techslides.com/demos/sample-videos/small.webm
-```
-
 ## Table of contents
 
-Here is an example of a plugin in action
-([`remark-toc`](https://github.com/remarkjs/remark-toc)).
+Here is an example of a plugin in action ([`remark-toc`](https://github.com/remarkjs/remark-toc)).
+
 This section is replaced by an actual table of contents.
 
 ## Syntax highlighting
 
+Here is an example of a plugin to highlight code: [rehype-highlight](https://github.com/rehypejs/rehype-highlight).
+
 ```js
-function main() {
-  console.log('Hello World')
+function hello() {
+  console.log('Hello vue-md-render')
 }
+```
+
+<video width="320" height="240" controls>
+  <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+</video>
+
+## Math
+
+Render Math with [remark-math](https://github.com/remarkjs/remark-math)
+and [rehype-katex](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex).
+
+Inline: $
+% \f is defined as #1f(#2) using the macro
+\f\relax{x} = \int_{-\infty}^\infty
+\f\hat\xi\,e^{2 \pi i \xi x}
+\,d\xi
+$
+
+Block:
+
+$$
+% \f is defined as #1f(#2) using the macro
+\f\relax{x} = \int_{-\infty}^\infty
+\f\hat\xi\,e^{2 \pi i \xi x}
+\,d\xi
+$$
+
+## Mermaid
+
+Extends `code` to render mermaid.
+
+```mermaid
+graph LR;
+  A--> B & C & D;
+  B--> A & E;
+  C--> A & E;
+  D--> A & E;
+  E--> B & C & D;
 ```
 
 ## GitHub flavored markdown (GFM)
@@ -50,8 +83,6 @@ These features **do not work by default**.
 - [ ] task list
 - [x] checked item
 
-https://example.com
-
 ## HTML in markdown
 
 ⚠️ HTML in markdown is quite unsafe, but if you want to support it, you can
@@ -62,3 +93,33 @@ You should probably combine it with
 <blockquote>
   👆 Use the toggle above to add the plugin.
 </blockquote>
+
+<video width="320" height="240" controls>
+  <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+</video>
+
+## Components
+
+You can pass components to change things:
+
+```html
+<script lang="ts" setup>
+  import VueMdRender from 'vue-md-render'
+  import MyFancyRule from './components/my-fancy-rule.js'
+
+  const renderHr = (properties) => MyFancyRule
+</script>
+
+<template>
+  <vue-md-render
+    :components="{
+    <!-- Use h2s instead of h1s -->
+    h1: 'h2',
+    <!-- Use a component instead of hrs -->
+    hr: renderHr />
+  }"
+  >
+    # Your markdown here
+  </vue-md-render>
+</template>
+```

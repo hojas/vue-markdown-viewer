@@ -1,18 +1,24 @@
 <script setup lang="ts">
 import 'github-markdown-css'
-import 'prismjs'
-import 'prismjs/themes/prism-tomorrow.css'
+import 'highlight.js/styles/night-owl.css'
+import 'katex/dist/katex.css'
+import remarkGfm from 'remark-gfm'
+import remarkToc from 'remark-toc'
+import remarkMath from 'remark-math'
+import rehypeSlug from 'rehype-slug'
 import rehypeRaw from 'rehype-raw'
+import rehypeHighlight from 'rehype-highlight'
+import rehypeKatex from 'rehype-katex'
 
 import VueMdRender from '../src/vue-md-render.vue'
-import content from './example.md?raw'
-import MyVideo from './components/my-video.vue'
+import RenderMermaid from './components/render-mermaid.vue'
 import NormalCode from './components/normal-code.vue'
+import content from './example.md?raw'
 
+// Extends code to render mermaid
 const code = (properties: any) => {
-  // extends code
-  if (properties.className?.includes('language-video')) {
-    return MyVideo
+  if (properties.className?.includes('language-mermaid')) {
+    return RenderMermaid
   }
   return NormalCode
 }
@@ -23,14 +29,32 @@ const code = (properties: any) => {
     class="markdown-body"
     :content="content"
     :components="{ code }"
-    :rehype-plugins="[rehypeRaw]"
-    link-target="_blank"
+    :remark-plugins="[remarkGfm, remarkToc, remarkMath]"
+    :rehype-plugins="[
+      rehypeSlug,
+      rehypeRaw,
+      [
+        rehypeHighlight,
+        {
+          plainText: ['mermaid'],
+        },
+      ],
+      [
+        rehypeKatex,
+        {
+          macros: {
+            '\\f': '#1f(#2)',
+          },
+        },
+      ],
+    ]"
   />
 </template>
 
 <style>
-body {
+html {
   background: #000;
+  scroll-behavior: smooth;
 }
 </style>
 

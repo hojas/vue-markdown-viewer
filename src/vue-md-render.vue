@@ -1,14 +1,12 @@
 <script lang="ts" setup>
-import { getCurrentInstance } from 'vue'
+import { useSlots } from 'vue'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { astToVNode } from './ast-to-vnode'
 import type { Components, AST } from './types'
 
-/**
- * Component props/options
- */
+// Component props/options
 const props = defineProps<{
   content?: string
   components?: Components
@@ -22,9 +20,9 @@ const props = defineProps<{
 
 // Get content from props or default slot
 let { content } = props
+const slots = useSlots()
 if (typeof content === 'undefined') {
-  const instance = getCurrentInstance()
-  const slot = instance?.slots.default
+  const slot = slots.default
   content = slot ? (slot()[0].children as string) : ''
 }
 
