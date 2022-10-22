@@ -1,5 +1,5 @@
 import { h, VNode } from 'vue'
-import type { Options, AST, Child } from './types'
+import type { Options, AST, Child, Components } from './types'
 
 /**
  * Render normal element
@@ -10,14 +10,14 @@ import type { Options, AST, Child } from './types'
 const renderElement = (
   ast: AST & { type: 'element' },
   options: Options
-): VNode =>
-  h(
+): VNode => {
+  return h(
     ast.tagName,
     ast.properties,
-    ast.children
-      ? ast.children.map((child: Child) => astToVNode(child, options))
-      : []
+    ast.children &&
+      ast.children.map((child: Child) => astToVNode(child, options))
   )
+}
 
 /**
  * Extends normal element with custom component
@@ -27,11 +27,9 @@ const renderElement = (
  */
 const renderCustomComponent = (
   ast: AST & { type: 'element' },
-  options: Options
+  options: Options & { components: Components }
 ): VNode => {
   const { components } = options
-  if (!components) return h('')
-
   const component = components[ast.tagName]
   const isFn = typeof component === 'function'
   const CustomComponent = isFn ? component(ast.properties) : component
@@ -39,9 +37,8 @@ const renderCustomComponent = (
   const children = ast.children
     ? ast.children.map((child: Child) => astToVNode(child, options))
     : []
-  const renderChildren = isFn ? () => children : children
 
-  return h(CustomComponent, ast.properties, renderChildren)
+  return h(CustomComponent, ast.properties, isFn ? () => children : children)
 }
 
 /**
@@ -83,7 +80,10 @@ export const astToVNode = (ast: AST, options: Options): VNode | string => {
   if (ast.type === 'element') {
     // custom
     if (options.components && options.components[ast.tagName]) {
-      return renderCustomComponent(ast, options)
+      return renderCustomComponent(
+        ast,
+        options as Options & { components: Components }
+      )
     }
 
     // link
