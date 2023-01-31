@@ -1,9 +1,12 @@
 <script lang="ts" setup>
-import 'mermaid'
+import mermaid from 'mermaid'
+
+mermaid.initialize({ startOnLoad: true })
 </script>
 
 <template>
   <div>
+    <div>mermaid</div>
     <div class="mermaid">
       <slot />
     </div>

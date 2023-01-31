@@ -19,15 +19,17 @@ This section is replaced by an actual table of contents.
 
 Here is an example of a plugin to highlight code: [rehype-highlight](https://github.com/rehypejs/rehype-highlight).
 
-```js
-function hello() {
-  console.log('Hello vue-md-render')
-}
-```
 
-<video width="320" height="240" controls>
-  <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
-</video>
+```html
+<script lang="ts" setup>
+  import { VueMdRender } from 'vue-md-render'
+  import rehypeHighlight from 'rehype-highlight'
+</script>
+
+<template>
+  <vue-md-render :rehype-plugins="[rehypeHighlight]"># Your markdown here</vue-md-render>
+</template>
+```
 
 ## Math
 
@@ -104,7 +106,7 @@ You can pass components to change things:
 
 ```html
 <script lang="ts" setup>
-  import VueMdRender from 'vue-md-render'
+  import { VueMdRender } from 'vue-md-render'
   import MyFancyRule from './components/my-fancy-rule.js'
 
   const renderHr = (properties) => MyFancyRule

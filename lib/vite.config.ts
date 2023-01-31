@@ -5,7 +5,7 @@ import dts from 'vite-plugin-dts'
 export default defineConfig({
   build: {
     lib: {
-      entry: 'src/vue-md-render.vue',
+      entry: 'src/index.ts',
       name: 'VueMdRender',
       fileName: 'vue-md-render',
     },
