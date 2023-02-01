@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import 'github-markdown-css'
-import 'prismjs/themes/prism-tomorrow.css'
+import 'highlight.js/styles/night-owl.css'
 import 'katex/dist/katex.css'
-import 'prismjs'
 import remarkGfm from 'remark-gfm'
 import remarkToc from 'remark-toc'
 import remarkMath from 'remark-math'
 import rehypeSlug from 'rehype-slug'
 import rehypeRaw from 'rehype-raw'
+import rehypeHighlight from 'rehype-highlight'
 import rehypeKatex from 'rehype-katex'
 import { VueMdRender } from 'vue-md-render'
 import RenderMermaid from './components/render-mermaid.vue'
@@ -32,6 +32,12 @@ const code = (properties: any) => {
     :rehype-plugins="[
       rehypeSlug,
       rehypeRaw,
+      [
+        rehypeHighlight,
+        {
+          plainText: ['mermaid'],
+        },
+      ],
       [
         rehypeKatex,
         {

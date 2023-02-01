@@ -1,6 +1,7 @@
 {
   "name": "example",
   "version": "1.0.0",
+  "packageManager": "pnpm@7.26.3",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
@@ -8,9 +9,10 @@
   },
   "dependencies": {
     "github-markdown-css": "^5.1.0",
+    "highlight.js": "^11.7.0",
     "katex": "^0.16.4",
     "mermaid": "^9.3.0",
-    "prismjs": "^1.29.0",
+    "rehype-highlight": "^6.0.0",
     "rehype-katex": "^6.0.2",
     "rehype-raw": "^6.1.1",
     "rehype-slug": "^5.1.0",
@@ -22,7 +24,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
-    "typescript": "^4.9.4",
+    "typescript": "^4.9.5",
     "vite": "^4.0.4",
     "vue-tsc": "^1.0.24"
   }
