@@ -3,7 +3,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build"
   },
   "dependencies": {
     "github-markdown-css": "^5.2.0",
