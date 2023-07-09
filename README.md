@@ -1,5 +1,7 @@
 # vue-md-render
 
+![npm](https://img.shields.io/npm/v/vue-md-render) ![npm](https://img.shields.io/npm/dw/vue-md-render)
+
 Vue component to render markdown with [remark](https://github.com/remarkjs/remark).
 
 ## Install
