@@ -19,7 +19,7 @@ const md = ref('## hi')
 </script>
 
 <template>
-  <vue-md-render>{{ md }}</vue-md-render>
+  <VueMdRender>{{ md }}</VueMdRender>
 </template>
 ```
 
@@ -35,7 +35,9 @@ const md = ref('## hi')
 </script>
 
 <template>
-  <vue-md-render :remark-plugins="[remarkGfm]">{{ md }}</vue-md-render>
+  <VueMdRender :remark-plugins="[remarkGfm]">
+    {{ md }}
+  </VueMdRender>
 </template>
 ```
 
@@ -57,7 +59,7 @@ console.log("hi")
 </script>
 
 <template>
-  <vue-md-render :rehype-plugins="[rehypeHighlight]">{{ md }}</vue-md-render>
+  <VueMdRender :rehype-plugins="[rehypeHighlight]">{{ md }}</VueMdRender>
 </template>
 ````
 

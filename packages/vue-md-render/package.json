@@ -1,0 +1,32 @@
+{
+  "name": "vue-md-render",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/vue-md-render.umd.cjs",
+      "import": "./dist/vue-md-render.js"
+    }
+  },
+  "main": "./dist/vue-md-render.umd.cjs",
+  "module": "./dist/vue-md-render.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly"
+  },
+  "dependencies": {
+    "rehype-stringify": "*",
+    "remark-parse": "*",
+    "remark-rehype": "*",
+    "unified": "*"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@vitejs/plugin-vue": "*",
+    "typescript": "*",
+    "vite": "*",
+    "vue": "*",
+    "vue-tsc": "*"
+  }
+}

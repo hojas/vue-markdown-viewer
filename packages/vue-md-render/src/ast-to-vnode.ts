@@ -1,5 +1,6 @@
-import { h, VNode } from 'vue'
-import type { Options, AST, Child, Components } from './types'
+import type { VNode } from 'vue'
+import { h } from 'vue'
+import type { AST, Child, Components, Options } from './types'
 
 /**
  * Render normal element
@@ -7,15 +8,13 @@ import type { Options, AST, Child, Components } from './types'
  * @param {Options} options Options
  * @returns {VNode} VNode
  */
-const renderElement = (
-  ast: AST & { type: 'element' },
-  options: Options
-): VNode => {
+function renderElement(ast: AST & { type: 'element' },
+  options: Options): VNode {
   return h(
     ast.tagName,
     ast.properties,
-    ast.children &&
-      ast.children.map((child: Child) => astToVNode(child, options))
+    ast.children
+      && ast.children.map((child: Child) => astToVNode(child, options)),
   )
 }
 
@@ -25,10 +24,8 @@ const renderElement = (
  * @param {Options} options Options
  * @returns {VNode} VNode
  */
-const renderCustomComponent = (
-  ast: AST & { type: 'element' },
-  options: Options & { components: Components }
-): VNode => {
+function renderCustomComponent(ast: AST & { type: 'element' },
+  options: Options & { components: Components }): VNode {
   const { components } = options
   const component = components[ast.tagName]
   const isFn = typeof component === 'function'
@@ -47,10 +44,8 @@ const renderCustomComponent = (
  * @param {Options} options  Options
  * @returns {VNode} VNode
  */
-const renderLink = (
-  ast: AST & { type: 'element' },
-  options: Options
-): VNode => {
+function renderLink(ast: AST & { type: 'element' },
+  options: Options): VNode {
   ast.properties = {
     ...ast.properties,
     target: options.linkTarget,
@@ -64,7 +59,7 @@ const renderLink = (
  * @param {Options} options Options
  * @returns {VNode|string} VNode
  */
-export const astToVNode = (ast: AST, options: Options): VNode | string => {
+export function astToVNode(ast: AST, options: Options): VNode | string {
   // root node
   if (ast.type === 'root') {
     const { className } = options
@@ -72,7 +67,7 @@ export const astToVNode = (ast: AST, options: Options): VNode | string => {
     return h(
       'div',
       properties,
-      ast.children.map((child: any) => astToVNode(child, options))
+      ast.children.map((child: any) => astToVNode(child, options)),
     )
   }
 
@@ -82,23 +77,21 @@ export const astToVNode = (ast: AST, options: Options): VNode | string => {
     if (options.components && options.components[ast.tagName]) {
       return renderCustomComponent(
         ast,
-        options as Options & { components: Components }
+        options as Options & { components: Components },
       )
     }
 
     // link
-    if (ast.tagName === 'a') {
+    if (ast.tagName === 'a')
       return renderLink(ast, options)
-    }
 
     // others element
     return renderElement(ast, options)
   }
 
   // raw html
-  if (ast.type === 'raw') {
+  if (ast.type === 'raw')
     return options.skipHtml ? '' : ast.value
-  }
 
   // text node
   return ast.value

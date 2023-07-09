@@ -4,7 +4,7 @@ import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { astToVNode } from './ast-to-vnode'
-import type { Components, AST } from './types'
+import type { AST, Components } from './types'
 
 // Component props/options
 const props = defineProps<{
@@ -30,7 +30,7 @@ if (typeof content === 'undefined') {
  * Parse markdown to AST with plugins
  * @returns {AST} AST
  */
-const main = (): AST => {
+function main(): AST {
   const processor = unified()
     .use(remarkParse)
     .use(props.remarkPlugins || [])
@@ -51,5 +51,5 @@ const RenderMarkdown = () => astToVNode(main(), props)
 </script>
 
 <template>
-  <render-markdown />
+  <RenderMarkdown />
 </template>
