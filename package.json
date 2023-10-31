@@ -1,8 +1,8 @@
 {
   "name": "vue-md-render",
   "type": "module",
-  "version": "1.0.2",
-  "packageManager": "pnpm@8.6.6",
+  "version": "1.0.3",
+  "packageManager": "pnpm@8.10.0",
   "license": "MIT",
   "repository": "hojas/vue-md-render",
   "bugs": "https://github.com/hojas/vue-md-render/issues",
@@ -20,8 +20,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/vue-md-render.umd.cjs",
-      "import": "./dist/vue-md-render.js"
+      "import": "./dist/vue-md-render.js",
+      "require": "./dist/vue-md-render.umd.cjs"
     }
   },
   "main": "./dist/vue-md-render.umd.cjs",
@@ -35,20 +35,20 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "rehype-stringify": "^9.0.3",
-    "remark-parse": "^10.0.2",
-    "remark-rehype": "^10.1.0",
-    "unified": "^10.1.2"
+    "rehype-stringify": "^10.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.0.0",
+    "unified": "^11.0.4"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.7",
-    "@types/node": "^20.4.1",
-    "@vitejs/plugin-vue": "^4.2.3",
-    "eslint": "^8.44.0",
+    "@antfu/eslint-config": "^1.0.0-beta.29",
+    "@types/node": "^20.8.10",
+    "@vitejs/plugin-vue": "^4.4.0",
+    "eslint": "^8.52.0",
     "shelljs": "^0.8.5",
-    "typescript": "^5.1.6",
-    "vite": "^4.4.2",
-    "vue": "^3.3.4",
-    "vue-tsc": "^1.8.4"
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vue": "^3.3.7",
+    "vue-tsc": "^1.8.22"
   }
 }

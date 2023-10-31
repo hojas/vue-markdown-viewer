@@ -5,8 +5,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/vue-md-render.umd.cjs",
-      "import": "./dist/vue-md-render.js"
+      "import": "./dist/vue-md-render.js",
+      "require": "./dist/vue-md-render.umd.cjs"
     }
   },
   "main": "./dist/vue-md-render.umd.cjs",

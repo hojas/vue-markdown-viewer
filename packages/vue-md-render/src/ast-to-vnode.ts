@@ -8,8 +8,7 @@ import type { AST, Child, Components, Options } from './types'
  * @param {Options} options Options
  * @returns {VNode} VNode
  */
-function renderElement(ast: AST & { type: 'element' },
-  options: Options): VNode {
+function renderElement(ast: AST & { type: 'element' }, options: Options): VNode {
   return h(
     ast.tagName,
     ast.properties,
@@ -24,8 +23,7 @@ function renderElement(ast: AST & { type: 'element' },
  * @param {Options} options Options
  * @returns {VNode} VNode
  */
-function renderCustomComponent(ast: AST & { type: 'element' },
-  options: Options & { components: Components }): VNode {
+function renderCustomComponent(ast: AST & { type: 'element' }, options: Options & { components: Components }): VNode {
   const { components } = options
   const component = components[ast.tagName]
   const isFn = typeof component === 'function'
@@ -44,8 +42,7 @@ function renderCustomComponent(ast: AST & { type: 'element' },
  * @param {Options} options  Options
  * @returns {VNode} VNode
  */
-function renderLink(ast: AST & { type: 'element' },
-  options: Options): VNode {
+function renderLink(ast: AST & { type: 'element' }, options: Options): VNode {
   ast.properties = {
     ...ast.properties,
     target: options.linkTarget,

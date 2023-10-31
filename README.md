@@ -54,14 +54,16 @@ import rehypeHighlight from 'rehype-highlight'
 const md = ref(`
 ## Highlight
 
-```js
+\`\`\`js
 console.log("hi")
-```
+\`\`\`
 `)
 </script>
 
 <template>
-  <VueMdRender :rehype-plugins="[rehypeHighlight]">{{ md }}</VueMdRender>
+  <VueMdRender :rehype-plugins="[rehypeHighlight]">
+    {{ md }}
+  </VueMdRender>
 </template>
 ````
 
