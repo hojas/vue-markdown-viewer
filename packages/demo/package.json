@@ -7,10 +7,10 @@
     "build": "vite build"
   },
   "dependencies": {
-    "github-markdown-css": "^5.3.0",
+    "github-markdown-css": "^5.4.0",
     "highlight.js": "^11.9.0",
     "katex": "^0.16.9",
-    "mermaid": "^10.6.0",
+    "mermaid": "^10.6.1",
     "rehype-highlight": "^7.0.0",
     "rehype-katex": "^7.0.0",
     "rehype-raw": "^7.0.0",
@@ -18,11 +18,11 @@
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
     "remark-toc": "^9.0.0",
-    "vue": "*",
+    "vue": "^3.3.8",
     "vue-md-render": "workspace:*"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "*",
+    "@vitejs/plugin-vue": "^4.4.1",
     "typescript": "*",
     "vite": "*",
     "vue-tsc": "*"
