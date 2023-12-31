@@ -1,13 +1,13 @@
-# vue-md-render
+# vue-markdown-viewer
 
-![npm](https://img.shields.io/npm/v/vue-md-render) ![npm](https://img.shields.io/npm/dw/vue-md-render)
+![npm](https://img.shields.io/npm/v/vue-markdown-viewer) ![npm](https://img.shields.io/npm/dw/vue-markdown-viewer)
 
 Vue component to render markdown with [remark](https://github.com/remarkjs/remark).
 
 ## Install
 
 ```shell
-$ npm install vue-md-render
+$ npm install vue-markdown-viewer
 ```
 
 ## Use
@@ -15,7 +15,7 @@ $ npm install vue-md-render
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VueMdRender } from 'vue-md-render'
+import { VueMdRender } from 'vue-markdown-viewer'
 
 const md = ref('## hi')
 </script>
@@ -30,7 +30,7 @@ Use a plugin to support gfm:
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VueMdRender } from 'vue-md-render'
+import { VueMdRender } from 'vue-markdown-viewer'
 import remarkGfm from 'remark-gfm'
 
 const md = ref('## hi')
@@ -48,7 +48,7 @@ Use a plugin to support syntax highlight:
 ````vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VueMdRender } from 'vue-md-render'
+import { VueMdRender } from 'vue-markdown-viewer'
 import rehypeHighlight from 'rehype-highlight'
 
 const md = ref(`

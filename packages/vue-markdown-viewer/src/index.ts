@@ -1,5 +1,5 @@
 import type { App } from 'vue'
-import VueMdRender from './vue-md-render.vue'
+import VueMdRender from './vue-markdown-viewer.vue'
 
 export { VueMdRender }
 

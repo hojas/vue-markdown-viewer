@@ -1,6 +1,6 @@
-# A demo of `vue-md-render`
+# A demo of `vue-markdown-viewer`
 
-`vue-md-render` is a markdown component for Vue.
+`vue-markdown-viewer` is a markdown component for Vue.
 
 ## Overview
 
@@ -22,12 +22,12 @@ Here is an example of a plugin to highlight code: [rehype-highlight](https://git
 
 ```html
 <script lang="ts" setup>
-import { VueMdRender } from 'vue-md-render'
+import { VueMdRender } from 'vue-markdown-viewer'
 import rehypeHighlight from 'rehype-highlight'
 </script>
 
 <template>
-  <vue-md-render :rehype-plugins="[rehypeHighlight]"># Your markdown here</vue-md-render>
+  <vue-markdown-viewer :rehype-plugins="[rehypeHighlight]"># Your markdown here</vue-markdown-viewer>
 </template>
 ```
 
@@ -106,14 +106,14 @@ You can pass components to change things:
 
 ```html
 <script lang="ts" setup>
-import { VueMdRender } from 'vue-md-render'
+import { VueMdRender } from 'vue-markdown-viewer'
 import MyFancyRule from './components/my-fancy-rule.js'
 
 const renderHr = (properties) => MyFancyRule
 </script>
 
 <template>
-  <vue-md-render
+  <vue-markdown-viewer
     :components="{
     <!-- Use h2s instead of h1s -->
     h1: 'h2',
@@ -122,6 +122,6 @@ const renderHr = (properties) => MyFancyRule
   }"
   >
     # Your markdown here
-  </vue-md-render>
+  </vue-markdown-viewer>
 </template>
 ```

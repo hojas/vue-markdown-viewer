@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import 'github-markdown-css'
+import 'github-markdown-css/github-markdown-dark.css'
 import 'highlight.js/styles/night-owl.css'
 import 'katex/dist/katex.css'
 import remarkGfm from 'remark-gfm'
@@ -10,7 +10,7 @@ import rehypeRaw from 'rehype-raw'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeKatex from 'rehype-katex'
 
-import { VueMdRender } from 'vue-md-render'
+import { VueMdRender } from 'vue-markdown-viewer'
 import MermaidRender from './components/MermaidRender.vue'
 import NormalCode from './components/NormalCode.vue'
 import content from './demo.md?raw'

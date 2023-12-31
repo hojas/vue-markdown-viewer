@@ -13,7 +13,7 @@ function renderElement(ast: AST & { type: 'element' }, options: Options): VNode 
     ast.tagName,
     ast.properties,
     ast.children
-      && ast.children.map((child: Child) => astToVNode(child, options)),
+    && ast.children.map((child: Child) => astToVNode(child, options)),
   )
 }
 

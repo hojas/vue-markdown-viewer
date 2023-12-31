@@ -6,7 +6,7 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: 'VueMdRender',
-      fileName: 'vue-md-render',
+      fileName: 'vue-markdown-viewer',
     },
     rollupOptions: {
       external: ['vue'],

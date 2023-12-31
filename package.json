@@ -1,11 +1,11 @@
 {
-  "name": "vue-md-render",
+  "name": "vue-markdown-viewer",
   "type": "module",
-  "version": "1.0.3",
-  "packageManager": "pnpm@8.10.2",
+  "version": "1.0.0",
+  "packageManager": "pnpm@8.13.1",
   "license": "MIT",
-  "repository": "hojas/vue-md-render",
-  "bugs": "https://github.com/hojas/vue-md-render/issues",
+  "repository": "hojas/vue-markdown-viewer",
+  "bugs": "https://github.com/hojas/vue-markdown-viewer/issues",
   "keywords": [
     "remark",
     "unified",
@@ -20,19 +20,20 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/vue-md-render.js",
-      "require": "./dist/vue-md-render.umd.cjs"
+      "import": "./dist/vue-markdown-viewer.js",
+      "require": "./dist/vue-markdown-viewer.umd.cjs"
     }
   },
-  "main": "./dist/vue-md-render.umd.cjs",
-  "module": "./dist/vue-md-render.js",
+  "main": "./dist/vue-markdown-viewer.umd.cjs",
+  "module": "./dist/vue-markdown-viewer.js",
   "types": "./dist/index.d.ts",
   "files": ["dist"],
   "scripts": {
     "dev": "node ./scripts/dev.cjs",
     "build": "node ./scripts/build.cjs",
     "build:demo": "node ./scripts/build-demo.cjs",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "push": "pnpm build && npm publish"
   },
   "dependencies": {
     "rehype-stringify": "^10.0.0",
@@ -41,12 +42,12 @@
     "unified": "^11.0.4"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^1.1.0",
-    "@types/node": "^20.9.0",
-    "eslint": "^8.53.0",
+    "@antfu/eslint-config": "^2.6.1",
+    "@types/node": "^20.10.6",
+    "eslint": "^8.56.0",
     "shelljs": "^0.8.5",
-    "typescript": "^5.2.2",
-    "vite": "^4.5.0",
-    "vue-tsc": "^1.8.22"
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vue-tsc": "^1.8.27"
   }
 }

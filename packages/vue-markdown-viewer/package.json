@@ -1,16 +1,16 @@
 {
-  "name": "vue-md-render",
+  "name": "vue-markdown-viewer",
   "type": "module",
   "private": true,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/vue-md-render.js",
-      "require": "./dist/vue-md-render.umd.cjs"
+      "import": "./dist/vue-markdown-viewer.js",
+      "require": "./dist/vue-markdown-viewer.umd.cjs"
     }
   },
-  "main": "./dist/vue-md-render.umd.cjs",
-  "module": "./dist/vue-md-render.js",
+  "main": "./dist/vue-markdown-viewer.umd.cjs",
+  "module": "./dist/vue-markdown-viewer.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build && vue-tsc --declaration --emitDeclarationOnly"
