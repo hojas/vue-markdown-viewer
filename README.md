@@ -54,9 +54,9 @@ import rehypeHighlight from 'rehype-highlight'
 const md = ref(`
 ## Highlight
 
-\`\`\`js
+```js
 console.log("hi")
-\`\`\`
+```
 `)
 </script>
 
