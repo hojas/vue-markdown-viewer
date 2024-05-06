@@ -1,10 +1,10 @@
 import type { App } from 'vue'
-import VueMdRender from './vue-markdown-viewer.vue'
+import VueMarkdownRender from './vue-markdown-viewer.vue'
 
-export { VueMdRender }
+export { VueMarkdownRender }
 
 export default {
   install: (app: App) => {
-    app.component('VueMdRender', VueMdRender)
+    app.component('VueMarkdownRender', VueMarkdownRender)
   },
 }

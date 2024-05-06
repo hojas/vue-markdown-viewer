@@ -36,7 +36,7 @@ export type Child = Element | Text | RawHtml
 export type AST = Root | Child
 
 // Custom component
-type Component = (properties?: Record<string, any>) => any
+type Component = (properties?: Record<string, any>, children?: any) => any
 export type Components = Record<string, Component | string>
 
 // Component options

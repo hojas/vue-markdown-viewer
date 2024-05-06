@@ -3,10 +3,11 @@ import 'github-markdown-css/github-markdown-dark.css'
 import 'highlight.js/styles/night-owl.css'
 import 'katex/dist/katex.css'
 
+import { onMounted, getCurrentInstance } from 'vue'
 import remarkGfm from 'remark-gfm'
 import remarkToc from 'remark-toc'
 import remarkMath from 'remark-math'
-import rehypeSlug from 'rehype-slug'
+import rehypeRaw from 'rehype-raw'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeKatex from 'rehype-katex'
 
@@ -16,21 +17,27 @@ import NormalCode from './components/NormalCode.vue'
 import content from './demo.md?raw'
 
 function code(properties: any) {
-  if (properties.className?.includes('language-mermaid'))
+  if (properties.className?.includes('language-mermaid')) {
     return MermaidRender
+  }
 
   return NormalCode
 }
+
+const instance = getCurrentInstance()
+onMounted(() => {
+  instance?.proxy?.$forceUpdate()
+})
 </script>
 
 <template>
   <VueMarkdownRender
-    class="markdown-body"
-    :content="content"
-    :components="{ code }"
-    :remark-plugins="[remarkGfm, remarkToc, remarkMath]"
-    :rehype-plugins="[
-      rehypeSlug,
+      class="markdown-body"
+      :content="content"
+      :components="{ code }"
+      :remark-plugins="[remarkGfm, remarkToc, remarkMath]"
+      :rehype-plugins="[
+      rehypeRaw,
       [
         rehypeHighlight,
         {

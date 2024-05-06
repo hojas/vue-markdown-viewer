@@ -27,11 +27,12 @@ function renderCustomComponent(ast: AST & { type: 'element' }, options: Options 
   const { components } = options
   const component = components[ast.tagName]
   const isFn = typeof component === 'function'
-  const CustomComponent = isFn ? component(ast.properties) : component
 
   const children = ast.children
     ? ast.children.map((child: Child) => astToVNode(child, options))
     : []
+
+  const CustomComponent = isFn ? component(ast.properties, children) : component
 
   return h(CustomComponent, ast.properties, isFn ? () => children : children)
 }

@@ -15,13 +15,13 @@ $ npm install vue-markdown-viewer
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VueMdRender } from 'vue-markdown-viewer'
+import { VueMarkdownRender } from 'vue-markdown-viewer'
 
 const md = ref('## hi')
 </script>
 
 <template>
-  <VueMdRender>{{ md }}</VueMdRender>
+  <VueMarkdownRender>{{ md }}</VueMarkdownRender>
 </template>
 ```
 
@@ -30,16 +30,16 @@ Use a plugin to support gfm:
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VueMdRender } from 'vue-markdown-viewer'
+import { VueMarkdownRender } from 'vue-markdown-viewer'
 import remarkGfm from 'remark-gfm'
 
 const md = ref('## hi')
 </script>
 
 <template>
-  <VueMdRender :remark-plugins="[remarkGfm]">
+  <VueMarkdownRender :remark-plugins="[remarkGfm]">
     {{ md }}
-  </VueMdRender>
+  </VueMarkdownRender>
 </template>
 ```
 
@@ -48,7 +48,7 @@ Use a plugin to support syntax highlight:
 ````vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VueMdRender } from 'vue-markdown-viewer'
+import { VueMarkdownRender } from 'vue-markdown-viewer'
 import rehypeHighlight from 'rehype-highlight'
 
 const md = ref(`
@@ -61,9 +61,9 @@ console.log("hi")
 </script>
 
 <template>
-  <VueMdRender :rehype-plugins="[rehypeHighlight]">
+  <VueMarkdownRender :rehype-plugins="[rehypeHighlight]">
     {{ md }}
-  </VueMdRender>
+  </VueMarkdownRender>
 </template>
 ````
 

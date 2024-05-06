@@ -40,7 +40,9 @@ function main(): AST {
     })
     .use(props.rehypePlugins || [])
 
-  return processor.runSync(processor.parse(content), content) as unknown as AST
+  const mdastTree = processor.parse(content)
+
+  return processor.runSync(mdastTree, content) as AST
 }
 
 /**

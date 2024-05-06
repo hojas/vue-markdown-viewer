@@ -6,14 +6,14 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/vue-markdown-viewer.js",
-      "require": "./dist/vue-markdown-viewer.umd.cjs"
+      "require": "./dist/vue-markdown-viewer.cjs"
     }
   },
-  "main": "./dist/vue-markdown-viewer.umd.cjs",
+  "main": "./dist/vue-markdown-viewer.cjs",
   "module": "./dist/vue-markdown-viewer.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly"
+    "build": "rollup --config rollup.config.js"
   },
   "dependencies": {
     "rehype-stringify": "*",
@@ -22,11 +22,15 @@
     "unified": "*"
   },
   "devDependencies": {
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/node": "*",
-    "@vitejs/plugin-vue": "*",
+    "rollup": "^4.17.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "rollup-plugin-vue": "^6.0.0",
     "typescript": "*",
-    "vite": "*",
-    "vue": "*",
-    "vue-tsc": "*"
+    "unplugin-vue": "^5.0.5",
+    "vue": "*"
   }
 }
