@@ -52,7 +52,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm run build && pnpm run build:demo
+        run: pnpm run build && pnpm run build
 
       - uses: actions/configure-pages@v3
 

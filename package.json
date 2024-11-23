@@ -34,6 +34,7 @@
     "dev:vue": "node ./scripts/dev.cjs --demo=vue",
     "dev:nuxt": "node ./scripts/dev.cjs --demo=nuxt",
     "build": "node ./scripts/build.cjs",
+    "build:demo": "pnpm build && node ./scripts/build-demo.cjs",
     "lint": "eslint .",
     "push": "pnpm build && npm publish"
   },
