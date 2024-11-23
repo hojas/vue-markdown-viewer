@@ -1,8 +1,8 @@
 {
   "name": "vue-markdown-viewer",
   "type": "module",
-  "version": "2.0.0",
-  "packageManager": "pnpm@9.0.6",
+  "version": "2.0.1",
+  "packageManager": "pnpm@9.14.2",
   "license": "MIT",
   "repository": "hojas/vue-markdown-viewer",
   "bugs": "https://github.com/hojas/vue-markdown-viewer/issues",
@@ -27,7 +27,9 @@
   "main": "./dist/vue-markdown-viewer.cjs",
   "module": "./dist/vue-markdown-viewer.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev:vue": "node ./scripts/dev.cjs --demo=vue",
     "dev:nuxt": "node ./scripts/dev.cjs --demo=nuxt",
@@ -36,18 +38,25 @@
     "push": "pnpm build && npm publish"
   },
   "dependencies": {
-    "rehype-stringify": "^10.0.0",
+    "rehype-stringify": "^10.0.1",
     "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.0",
-    "unified": "^11.0.4"
+    "remark-rehype": "^11.1.1",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.16.1",
-    "@types/node": "^20.12.8",
-    "eslint": "^9.2.0",
+    "@antfu/eslint-config": "^3.9.2",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@types/node": "^22.9.3",
+    "eslint": "^9.15.0",
+    "rollup": "^4.27.4",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "rollup-plugin-vue": "^6.0.0",
     "shelljs": "^0.8.5",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.11",
-    "vue-tsc": "^2.0.16"
+    "typescript": "^5.7.2",
+    "unplugin-vue": "^5.1.5",
+    "vite": "^5.4.11",
+    "vue-tsc": "^2.1.10"
   }
 }

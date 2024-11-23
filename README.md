@@ -1,6 +1,7 @@
 # vue-markdown-viewer
 
-![npm](https://img.shields.io/npm/v/vue-markdown-viewer) ![npm](https://img.shields.io/npm/dw/vue-markdown-viewer)
+![npm](https://img.shields.io/npm/v/vue-markdown-viewer)
+![npm](https://img.shields.io/npm/dm/vue-markdown-viewer)
 
 Vue component to render markdown with [remark](https://github.com/remarkjs/remark).
 

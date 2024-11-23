@@ -1,8 +1,12 @@
+import { createRequire } from 'node:module'
+import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
 import vue from 'rollup-plugin-vue'
-import packageJson from './package.json' assert { type: 'json' }
+
+const require = createRequire(import.meta.url)
+
+const packageJson = require('./package.json')
 
 export default {
   input: 'src/index.ts',
