@@ -16,7 +16,7 @@ $ npm install vue-markdown-viewer
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VueMarkdownRender } from 'vue-markdown-viewer'
+import { VueMarkdownRender } from 'core'
 
 const md = ref('## hi')
 </script>
@@ -31,7 +31,7 @@ Use a plugin to support gfm:
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VueMarkdownRender } from 'vue-markdown-viewer'
+import { VueMarkdownRender } from 'core'
 import remarkGfm from 'remark-gfm'
 
 const md = ref('## hi')
@@ -49,7 +49,7 @@ Use a plugin to support syntax highlight:
 ````vue
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { VueMarkdownRender } from 'vue-markdown-viewer'
+import { VueMarkdownRender } from 'core'
 import rehypeHighlight from 'rehype-highlight'
 
 const md = ref(`

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useSlots } from 'vue'
+import { ref, useSlots, watchEffect } from 'vue'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
@@ -18,13 +18,19 @@ const props = defineProps<{
   linkTarget?: string
 }>()
 
-// Get content from props or default slot
-let { content } = props
 const slots = useSlots()
-if (typeof content === 'undefined') {
-  const slot = slots.default
-  content = slot ? (slot()[0].children as string) : ''
-}
+
+// Get content from props or default slot
+const content = ref('')
+
+watchEffect(() => {
+  if (props.content === undefined) {
+    const slot = slots.default
+    content.value = slot ? (slot()[0].children as string) : ''
+  } else {
+    content.value = props.content
+  }
+})
 
 /**
  * Parse markdown to AST with plugins
@@ -40,9 +46,9 @@ function main(): AST {
     })
     .use(props.rehypePlugins || [])
 
-  const mdastTree = processor.parse(content)
+  const mdastTree = processor.parse(content.value)
 
-  return processor.runSync(mdastTree, content) as AST
+  return processor.runSync(mdastTree, content.value) as AST
 }
 
 /**

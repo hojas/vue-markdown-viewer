@@ -3,6 +3,7 @@ import 'github-markdown-css/github-markdown-dark.css'
 import 'highlight.js/styles/night-owl.css'
 import 'katex/dist/katex.css'
 
+import { ref } from 'vue'
 import remarkGfm from 'remark-gfm'
 import remarkToc from 'remark-toc'
 import remarkMath from 'remark-math'
@@ -15,6 +16,8 @@ import MermaidRender from './components/MermaidRender.vue'
 import NormalCode from './components/NormalCode.vue'
 import content from './demo.md?raw'
 
+const str = ref<string>(content)
+
 function code(properties: any) {
   if (properties.className?.includes('language-mermaid'))
     return MermaidRender
@@ -26,7 +29,7 @@ function code(properties: any) {
 <template>
   <VueMarkdownRender
     class="markdown-body"
-    :content="content"
+    :content="str"
     :components="{ code }"
     :remark-plugins="[remarkGfm, remarkToc, remarkMath]"
     :rehype-plugins="[
@@ -46,7 +49,8 @@ function code(properties: any) {
         },
       ],
     ]"
-  />
+  >
+  </VueMarkdownRender>
 </template>
 
 <style>
